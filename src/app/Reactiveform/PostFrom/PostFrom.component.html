@@ -1,0 +1,69 @@
+<form [formGroup]="userDetails">
+
+
+    <div>
+        <label for="id">Id :</label>
+        <input
+            type="text"
+            name
+            id="id"
+            placeholder="id"
+            formControlName="id"
+        >
+    </div>
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input
+            type="text"
+            name="name"
+            id="name"
+            class="form-control"
+            placeholder="Enter name"
+            formControlName="name"
+            required
+        >
+    </div>
+
+    <div>
+        <button type="submit" class="btn btn-primary" (click)="submitForm1()">Submit Data</button>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of backendData">
+                <td>{{data.id}}</td>
+                <td>{{data.name}}</td>
+            </tr>
+        </tbody>
+    </table>
+</form>
+
+
+<div class="input-group">
+  <input type="search" class="form-control rounded"[(ngModel)]="ss" placeholder="Search by Id" aria-label="Search"
+    aria-describedby="search-addon" />
+  <button  (click)="serach()"type="button" class="btn btn-outline-primary">search</button>
+</div>
+
+<table class="table">
+  <thead>
+      <tr>
+          <th>Id</th>
+          <th>Name</th>
+      </tr>
+  </thead>
+  <tbody *ngIf="ssd.length!=0">
+      <tr  *ngFor="let data of ssd">
+
+          <td>{{data.id}}</td>
+          <td>{{data.name}}</td>
+      </tr>
+  </tbody>
+  <tbody class="text-danger" *ngIf="ssd.length==0">Data Not  Avalivable</tbody>
+</table>

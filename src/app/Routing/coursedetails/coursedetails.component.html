@@ -1,0 +1,29 @@
+<p>coursedetails works!</p>
+Id is = {{ courseId }}
+
+<nav>
+  <div class="row m-3">
+    <button class="col-2 offset-5 btn btn-warning" (click)="goHome()">
+      Home
+    </button>
+  </div>
+  <button class="row m-5 col-2 offset-5 btn btn-success" (click)="toprevious()">
+    Previous
+  </button>
+  <button class="col-2 offset-5 btn btn-success" (click)="tonext()">
+    Next
+  </button>
+  <button class="col-2 offset-5 btn btn-warning" (click)="goback()">
+    Back
+  </button>
+</nav>
+
+
+<nav>
+  <button class="col-2 offset-5 btn btn-success" (click)="tocourseduration()">
+    Courseduration
+  </button>
+  <button class="col-2 offset-5 btn btn-warning" (click)="goCoursefee()">
+    Coursefee
+  </button>
+</nav>

@@ -1,0 +1,68 @@
+<form [formGroup]="userDetails">
+    <div>
+        <label for="username">Username : </label>
+        <input type="text" name="" id="username" placeholder="username" formControlName="username">
+        <!-- valid - invalid, pristine - dirty, touched - untouched -->
+        <!-- Valid: {{userDetails.controls.username.valid}}
+        invalid: {{userDetails.controls.username.invalid}}
+        Pristine: {{userDetails.controls.username.pristine}}
+        Dirty: {{userDetails.controls.username.dirty}}
+        touched: {{userDetails.controls.username.touched}}
+        untouched: {{userDetails.controls.username.untouched}} -->
+        <div class="text-danger" *ngIf="userDetails.controls.username.touched && userDetails.controls.username.invalid">
+            <small *ngIf="userDetails.controls.username.errors?.required">Username required</small>
+            <small *ngIf="userDetails.controls.username.errors?.pattern">Invalid username</small>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" class="form-control"
+            placeholder="Enter Password" formControlName="password" required>
+        <div *ngIf="userDetails.controls.password?.invalid && userDetails.controls.password?.touched && userDetails.controls.password?.dirty">
+            <small class="text-danger" *ngIf="userDetails.controls.password?.errors?.required">Password Required</small>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="rPassword">Re-Enter Password</label>
+        <input type="password" name="rPassword" id="rPassword" class="form-control"
+            placeholder="Re-Enter Password" formControlName="rpassword" required>
+        <div *ngIf="userDetails.controls.rpassword?.invalid && userDetails.controls.rpassword?.touched && userDetails.controls.rpassword?.dirty">
+            <small class="text-danger" *ngIf="userDetails.controls.rpassword?.errors?.required">Re-Enter Password Required</small>
+        </div>
+        <div *ngIf="userDetails.controls.rpassword?.touched && userDetails.controls.rpassword?.dirty">
+            <small class="text-danger" *ngIf="userDetails.controls.rpassword.errors?.passwordError">{{userDetails.controls.rpassword.errors?.passwordError?.message}}</small>
+        </div>
+    </div>
+    <div>
+        Age : <input type="number" name="" id="" formControlName="age">
+    </div>
+    
+    <div *ngIf="showOutput">
+        {{userDetails.value | json}}
+    </div>
+    
+    <!-- <div>
+        Overall Form: 
+        Valid: {{userDetails.valid}}
+        invalid: {{userDetails.invalid}}
+        Pristine: {{userDetails.pristine}}
+        Dirty: {{userDetails.dirty}}
+        touched: {{userDetails.touched}}
+        untouched: {{userDetails.untouched}}
+    </div> -->
+
+    <div>
+        errors: {{userDetails.errors | json}}
+    </div>
+    <br><br>
+    <div>
+        <button type="submit" (click)="submitForm()" [disabled]="userDetails.invalid">Submit Data</button>{{userDetails.invalid}}
+    </div>
+    <!-- <div>
+        {{userDetails.value.username}}
+    </div> -->
+
+    <!-- <div>
+        {{userDetails.controls.username.value}}
+    </div> -->
+</form>

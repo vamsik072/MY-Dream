@@ -1,0 +1,116 @@
+<p>
+   welcome {{name}}
+</p>
+
+<input [disabled]="propery" value="vamsi">
+
+
+<!-- ****Class Binding**** -->
+
+<h1 [class.Textcolor]="propery">Hello</h1>
+
+
+<h1 [ngClass]="Group">Hello</h1>
+
+<!-- ****Style Binding**** -->
+
+
+<h1 [style.color]="'blue'">Style Binding</h1>
+
+<h1 [style.color]="requied ?'Green' : 'red'">Style Binding</h1>
+
+<h1 [ngStyle]="Group2">Style Binding</h1>
+
+
+
+<!-- ****Event Binding**** -->
+
+
+<button (click)="onclick()" type="button">Click Me</button>
+
+
+{{ event}}
+
+
+<!-- ****Template Reference Variables**** -->
+<br><br>
+<input #msg type="text">
+<button (click)="message(msg.value)" type="button">Welcome</button>
+
+{{event2}}
+
+
+
+<!-- **** Two way Data Binding***** -->
+
+<br><br>
+
+<input [(ngModel)]="twoway"type="text">
+
+
+{{twoway}}
+
+
+<!-- ******ngIf***** -->
+
+<br><br>
+<h1 *ngIf="ngif ; else elseblock ">NGIF</h1>
+
+<ng-template #elseblock>
+
+<h1>else NGIF</h1>
+</ng-template>
+
+
+<!-- ****ngswitch**** -->
+
+
+<span [ngSwitch]="MyChoice">
+<p *ngSwitchCase="true">
+One Select
+</p>
+<p *ngSwitchCase="false">
+
+</p>
+<p *ngSwitchDefault>
+
+</p>
+</span>
+
+<!-- ****ngfor***** -->
+
+
+<div *ngFor="let x of subjects; let i=index">
+
+
+  <h2> {{i}} -> {{x}}</h2>
+
+</div>
+
+
+<!-- ***Component Interaction*** -->
+
+
+
+ <h2>{{parent}}</h2>
+
+ <button (click)="fireevent()">child</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
